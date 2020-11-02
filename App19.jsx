@@ -35,7 +35,7 @@ class App19 extends React.Component {
       if (password.length < 6) {
         errors.push("Password should be at least 6 characters long");
 }
-if (phone.length < 10 || phone.length==0) {
+if (phone.length < 10 ) {
     errors.push("Phone number should be at least 10 characters long");
 }
 if ( phone.length==0) {
