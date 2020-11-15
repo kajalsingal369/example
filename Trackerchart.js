@@ -4,7 +4,9 @@ import Badge from 'react-bootstrap/Badge';
  
 
 let bg;
-let mydata=[80000];
+let Expense_spent=[50000];
+let ExpenseLimit=[50000];
+
 const chartColors ={
     red:"#ff0000",
     blue:"#00bfff",
@@ -20,14 +22,14 @@ class Trackerchart extends Component{
      super(props)
      this.state={
         data1:{
-            labels:["Monthly Expense"],
+            labels:["Expense spent","Monthly Expense Limit"],
                datasets:[{
-                       data: mydata.map(function(value){
+                       data: [Expense_spent.map(function(value){
                          if(value<=10000) {
                           bg=chartColors.green;
                           return value;
                          }
-                         else if(value>10000 && value<=50000)
+                         else if(value>10000 && value<50000)
                          {
                              bg=chartColors.blue;
                              return value;
@@ -36,8 +38,8 @@ class Trackerchart extends Component{
                           bg=chartColors.red;
                           return value;
                       }
-                      }),
-                     backgroundColor:bg,
+                      }), ExpenseLimit],
+                     backgroundColor:[bg,"#9932CC"],
                      borderWidth:3,
                      borderColor:"gray"
                    }]
@@ -45,11 +47,8 @@ class Trackerchart extends Component{
     }}
     render(){
         return(
-            <div id="Trackerchart"  style={{height:500,width:500}}>
- <Doughnut data={this.state.data1}   options={{
-                cutoutPercentage:70,
-                responsive:true, 
-                maintainAspectRatio: true}}/>
+            <div id="Trackerchart"  style={{height:600,width:700}}>
+ <Doughnut data={this.state.data1}   options={{responsive:true, maintainAspectRatio: true}}/>
                 
 <div><h5>ExpenseLimit Indicators: <Badge variant="success">Normal</Badge>{' '}
   <Badge variant="primary">Moderate</Badge>{' '}
