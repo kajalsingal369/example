@@ -5,7 +5,7 @@ import {Navbar, Nav , NavDropdown , Button} from 'react-bootstrap';
 class Navigation extends Component{
     render(){
         return(
-            <Navbar bg='light' expands='lg' >
+            <Navbar bg='light' expands='lg'  inline>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav"></Navbar.Collapse>
         <Nav className="p-2 bg-light text-dark ">

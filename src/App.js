@@ -4,7 +4,6 @@ import { BrowserRouter , Switch,Route, Link } from "react-router-dom";
 import Home  from './components/Home'
 import Fundstransfer from './components/Fundstransfer'
 import FixedDeposits from './components/FixedDeposits';
-import  Accounts from './components/Accounts';
 import Profile from './components/Profile'
 import CreditBalance from './components/CreditBalance';
 import Savings from './components/Savings';

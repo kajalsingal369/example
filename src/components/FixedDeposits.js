@@ -1,4 +1,4 @@
-import React ,{Component} from 'react';
+import React ,{Component, useEffect} from 'react';
 import { useState } from 'react';
 import RangeSlider from 'react-bootstrap-range-slider';
 import {Form,Col,Row,Button} from 'react-bootstrap';
@@ -7,18 +7,35 @@ import { Doughnut } from 'react-chartjs-2';
 
 //const investment=document.getElementById('range-slider1').value;
 //const interest =document.getElementById('range-slider2').value;
- /*const FDchart=()=>{
+ const FDchart=()=>{
      const [chartData, setChartData]= useState({});
      const chart=()=>{
          setChartData({
-             labels:[]
+             labels:['Total Investment' , 'Total Interest'],
+             datasets:[
+                 {
+                   label:'FD calculator',
+                   data:[10000,2000],
+                  backgroundColor:['#9932CC','#00FA9A'],
+                  borderWidth:1
+                 }
+             ]
          })
      }
+     useEffect(()=>{
+         chart()
+     })
      return(
-         <div></div>
+         <div>
+        <Doughnut
+         data={chartData}
+         options={{ 
+            responsive:true, 
+            maintainAspectRatio: true}}
+       /></div>
      )
 
- }*/
+ }
 
 
 const SimpleSlider = () => {
@@ -30,7 +47,7 @@ const SimpleSlider = () => {
    <div className='slider'>
     <Form>
      <Form.Group as ={Row}>
-    <Col sm='4'>
+    <Col sm='10'>
         <Typography gutterBottom> PRINCIPAL: Rs. {value1}</Typography>
        <RangeSlider id="range-slider1" 
           value={value1}
@@ -45,7 +62,7 @@ const SimpleSlider = () => {
         
         
  <Form.Group as ={Row}>
-    <Col sm='4'>         
+    <Col sm='10'>         
     <div className="Slider2">
     <Typography  gutterBottom> INTEREST RATE:  {value2}%</Typography>
      <RangeSlider  id="range-slider2"
@@ -61,7 +78,7 @@ const SimpleSlider = () => {
          </Form.Group>   
 
     <Form.Group as ={Row}>
-    <Col sm='4'> 
+    <Col sm='10'> 
  <div className="Slider3">
 <Typography  gutterBottom> TIME-PERIOD:  {value3} years</Typography>
 <RangeSlider id="range-slider3"
@@ -88,8 +105,8 @@ const SimpleSlider = () => {
                 <h1>FixedDeposits</h1>
                 <Form>
                 <Form.Group as={Row}>
-                <Col><SimpleSlider/> </Col>    
-    
+                <Col ><SimpleSlider/> </Col>    
+                <Col ><FDchart/></Col>
                 </Form.Group>
                
                </Form>
